@@ -226,12 +226,12 @@ RCT_EXPORT_METHOD(prepareRecordingAtPath:(NSString *)path sampleRate:(float)samp
 
   _recordSession = [AVAudioSession sharedInstance];
 
-  if (_measurementMode) {
-      [_recordSession setCategory:AVAudioSessionCategoryRecord error:nil];
-      [_recordSession setMode:AVAudioSessionModeMeasurement error:nil];
-  }else{
-      [_recordSession setCategory:AVAudioSessionCategoryMultiRoute error:nil];
-  }
+//   if (_measurementMode) {
+//       [_recordSession setCategory:AVAudioSessionCategoryRecord error:nil];
+//       [_recordSession setMode:AVAudioSessionModeMeasurement error:nil];
+//   }else{
+//       [_recordSession setCategory:AVAudioSessionCategoryMultiRoute error:nil];
+//   }
 
   _audioRecorder = [[AVAudioRecorder alloc]
                 initWithURL:_audioFileURL
@@ -259,7 +259,7 @@ RCT_EXPORT_METHOD(startRecording)
 RCT_EXPORT_METHOD(stopRecording)
 {
   [_audioRecorder stop];
-  [_recordSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+//   [_recordSession setCategory:AVAudioSessionCategoryPlayback error:nil];
   _prevProgressUpdateTime = nil;
 }
 
